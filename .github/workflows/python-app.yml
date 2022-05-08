@@ -8,20 +8,17 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
-permissions:
-  contents: read
-
+    
 jobs:
   show:
-
     runs-on: ubuntu-latest
-
     steps:
     - name: checkout enviroment
     - uses: actions/checkout@v3
+
     - name: show enviroment
-      run: ls -la && ls -la ./*
+      run: |
+        ls -la && ls -la ./*
     
     
     

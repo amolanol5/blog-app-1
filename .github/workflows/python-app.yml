@@ -8,13 +8,13 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-    
+
 jobs:
   show:
     runs-on: ubuntu-latest
     steps:
     - name: checkout enviroment
-    - uses: actions/checkout@v3
+      uses: actions/checkout@v3
 
     - name: show enviroment
       run: |

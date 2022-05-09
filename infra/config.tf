@@ -1,9 +1,13 @@
-variable "region" {
-  default     = "us-east-1"
-  description = "AWS region"
+provider "aws" {
+  profile = "default"
+  region  = "us-east-1"
 }
 
-provider "aws" {
-  region = var.region
-  profile = "amolanol"  
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "4.11.0"
+    }
+  }
 }

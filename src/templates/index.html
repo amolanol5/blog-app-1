@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Blog</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   </head>
   <body>
@@ -15,17 +15,17 @@
           <div class="col" style="margin-top: 50px;">
             <div class="container-fluid"><h1>Ingrese los datos solicitados</h1></div>
             <div class="container-fluid" style="margin-top: 50px;">
-                <form  method="get" role="search" action="/process">
+                <form  method="post" role="search" action="/process">
                     <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Titulo Blog</label>
-                      <input type="text" class="form-control" id="text" name="text"aria-describedby="emailHelp">
-                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                      <label for="TitleBlog" class="form-label fw-bold">Titulo Blog</label>
+                      <input type="title" class="form-control" id="title" name="title" aria-describedby="titlelHelp">
+                      <div id="titlelHelp" class="form-text">Ingrese el título para su blog</div>
                     </div>
                     <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1">
+                      <label for="bodyblog" class="form-label">Articulo</label>
+                      <textarea type="text-area" class="form-control" id="bodyblog" rows="6" name="bodyblog"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Insertar</button>
                   </form>
             </div>
           </div>

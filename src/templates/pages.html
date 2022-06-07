@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog pages</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col  ">
+        <!-- Column -->
+      </div>
+      <div class="col" style="margin-top: 50px;">
+        <!-- Column -->
+        <div class="container-fluid">
+          <h1>Articulos</h1>
+        </div>
+        <div class="container-fluid" style="margin-top: 50px;">
+    
+          <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                  aria-controls="panelsStayOpen-collapseOne">
+                  {{ titleblog }}
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+                  <p>{{ bodyblog }}</p> 
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseTwo">
+                  Accordion Item #2
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                aria-labelledby="panelsStayOpen-headingTwo">
+                <div class="accordion-body">
+                  <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse
+                  plugin adds the appropriate classes that we use to style each element. These classes control the
+                  overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this
+                  with custom CSS or overriding our default variables. It's also worth noting that just about any HTML
+                  can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapseThree">
+                  Accordion Item #3
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                aria-labelledby="panelsStayOpen-headingThree">
+                <div class="accordion-body">
+                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse
+                  plugin adds the appropriate classes that we use to style each element. These classes control the
+                  overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this
+                  with custom CSS or overriding our default variables. It's also worth noting that just about any HTML
+                  can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="d-grid gap-2 col-12 mx-auto" style="margin-top: 50px;">
+            <button class="btn btn-primary" type="button" onclick="location.href='http://localhost:8080/' ">Volver a la
+              pagina principal</button>
+          </div>
+
+        </div>
+      </div>
+      <div class="col  ">
+        <!-- Column -->
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

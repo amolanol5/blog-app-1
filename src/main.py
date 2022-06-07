@@ -9,14 +9,15 @@ name="andres"
 # routes
 @app.route("/")
 def index():
-    return render_template('hello.html', name=name)
+    return render_template('index.html', name=name)
 
 @app.route("/process", methods=['GET', 'POST'])
 def process():
-    text = request.args.get('text')
-    text = "el valor que viene del form es : " + text
-    return "<h1>" + text + "</h1>" + "<a href='http://localhost:8080/'>Volver a la pagina principal</a>" 
-
+    if request.method == 'POST':
+        titleblog = request.form['title']
+        bodyblog = request.form['bodyblog']
+        
+    return render_template('pages.html', titleblog=titleblog,  bodyblog=bodyblog)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=True)

@@ -1,17 +1,16 @@
-resource "aws_dynamodb_table" "example" {
-  name         = "table_blog"
+resource "aws_dynamodb_table" "table_blog" {
+  name         = "table_blogs"
   billing_mode = "PAY_PER_REQUEST"
-  hash_key       = "tittle_blog"
-  range_key      = "body_blog"
-
+  hash_key     = "typeblog"
+  range_key      = "timestampp"
 
   attribute {
-    name = "tittle_blog"
-    type = "S"
+    name = "typeblog"
+    type = "N"
   }
 
   attribute {
-    name = "body_blog"
-    type = "S"
+    name = "timestampp"
+    type = "N"
   }
 }

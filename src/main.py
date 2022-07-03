@@ -2,6 +2,7 @@ from flask import Flask ,request
 from flask import url_for
 from flask import render_template
 from datetime import datetime
+from boto3.dynamodb.conditions import Key, Attr
 import boto3
 
 
@@ -48,8 +49,16 @@ def process():
          )
         print(timestampp)
         print(response_db)
-        
-    return render_template('pages.html', titleblog=titleblog,  bodyblog=bodyblog)
+    
+    # query data
+    dynamodb = boto3.resource('dynamodb' ,region_name='us-east-1')
+    table = dynamodb.Table('table_blogs')
+    response = table.query(
+    KeyConditionExpression=Key('typeblog').eq(1)
+    )
+    #response = response["Items"]
+    print(response)
+    return render_template('pages.html', response=response)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=True)

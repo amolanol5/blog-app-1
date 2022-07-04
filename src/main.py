@@ -1,4 +1,4 @@
-from flask import Flask ,request
+from flask import Flask ,request, redirect
 from flask import url_for
 from flask import render_template
 from datetime import datetime
@@ -51,14 +51,32 @@ def process():
         print(response_db)
     
     # query data
-    dynamodb = boto3.resource('dynamodb' ,region_name='us-east-1')
-    table = dynamodb.Table('table_blogs')
-    response = table.query(
-    KeyConditionExpression=Key('typeblog').eq(1)
-    )
+    # dynamodb = boto3.resource('dynamodb' ,region_name='us-east-1')
+    # table = dynamodb.Table('table_blogs')
+    # response = table.query(
+    # KeyConditionExpression=Key('typeblog').eq(1)
+    # )
     #response = response["Items"]
-    print(response)
-    return render_template('pages.html', response=response)
+    #print(response)
+    return redirect(url_for('blog'))
+
+@app.route("/blog", methods=['GET', 'POST'])
+def blog():
+    # query data
+    if request.method == 'GET':
+        
+        dynamodb = boto3.resource('dynamodb' ,region_name='us-east-1')
+        table = dynamodb.Table('table_blogs')
+        response = table.query(
+        KeyConditionExpression=Key('typeblog').eq(1)
+            )
+        #print(response)
+        last4_elements = response["Items"][::-1]
+        last4_elements = last4_elements[0:3]
+        
+        print(last4_elements)
+        return render_template('pages.html', last4_elements=last4_elements)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=True)

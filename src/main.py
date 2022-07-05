@@ -1,4 +1,4 @@
-from flask import Flask ,request, redirect
+from flask import Flask, jsonify ,request, redirect
 from flask import url_for
 from flask import render_template
 from datetime import datetime
@@ -60,8 +60,8 @@ def process():
     #print(response)
     return redirect(url_for('blog'))
 
-@app.route("/blog", methods=['GET', 'POST'])
-def blog():
+@app.route("/api/blogs", methods=['GET', 'POST'])
+def api_blogs():
     # query data
     if request.method == 'GET':
         
@@ -75,8 +75,24 @@ def blog():
         last4_elements = last4_elements[0:3]
         
         print(last4_elements)
-        return render_template('pages.html', last4_elements=last4_elements)
+        #return render_template('pages.html', last4_elements=last4_elements)
+        return response
 
 
+@app.route("/api/blogs/<string:blog_id>", methods=['GET', 'POST'])
+def api_blog_id(blog_id):
+    if request.method == 'GET':
+        print(blog_id)
+        dynamodb = boto3.resource('dynamodb' ,region_name='us-east-1')
+        table = dynamodb.Table('table_blogs')
+        response = table.query(
+        KeyConditionExpression=Key('typeblog').eq(1)
+        )
+        
+        only_one_item = [i for i in response["Items"] if i["timestampp"] ==  int(blog_id)]
+        return jsonify({"message": "blog found", "blog" : only_one_item})
+        
+    
+    
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=True)

@@ -1,8 +1,8 @@
 resource "aws_iam_user" "user" {
-  name = "user1"
+  name = "user2"
   path = "/system/"
 
   tags = {
-    tag-key = "tag-test"
+    tag-key = "madeinterraform"
   }
 }

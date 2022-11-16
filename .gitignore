@@ -9,6 +9,8 @@ Dockerfile
 # .tfstate files
 *.tfstate
 *.tfstate.*
+*.bad*
+
 
 # Crash log files
 crash.log
